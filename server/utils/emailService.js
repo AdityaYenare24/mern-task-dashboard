@@ -5,10 +5,12 @@ import nodemailer from 'nodemailer';
 // before the transporter is created. Fixes "Missing credentials" error.
 const createTransporter = () => {
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp-relay.brevo.com',
+    port: 587,
+    secure: false,
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: 'a46940001@smtp-brevo.com',
+      pass: 'm50MIqWcCkH4PAyK',
     },
   });
 };
