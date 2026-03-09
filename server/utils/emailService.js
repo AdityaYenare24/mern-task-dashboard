@@ -6,8 +6,8 @@ import nodemailer from 'nodemailer';
 const createTransporter = () => {
   return nodemailer.createTransport({
     host: 'smtp-relay.brevo.com',
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
       user: 'a46940001@smtp-brevo.com',
       pass: 'm50MIqWcCkH4PAyK',
