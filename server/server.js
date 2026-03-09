@@ -16,7 +16,11 @@ const app = express();
 
 // ── Global Middleware ──────────────────────────────────────────────────────────
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: [
+    'http://localhost:5173',
+    'https://mern-task-dashboard.vercel.app',
+    'https://mern-task-dashboard-git-main-adityayanare24s-projects.vercel.app',
+  ],
   credentials: true,
 }));
 app.use(express.json());       // Parse incoming JSON bodies
