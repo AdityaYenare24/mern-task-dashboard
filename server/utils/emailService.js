@@ -19,7 +19,7 @@ export const sendWelcomeEmail = async (name, email) => {
   try {
     const transporter = createTransporter();
     await transporter.sendMail({
-      from: `"TaskBoard" <${process.env.EMAIL_USER}>`,
+      from: `"TaskBoard" <a46940001@smtp-brevo.com>`,
       to: email,
       subject: '👋 Welcome to TaskBoard!',
       html: `
@@ -44,7 +44,7 @@ export const sendTaskCreatedEmail = async (name, email, task) => {
   try {
     const transporter = createTransporter();
     await transporter.sendMail({
-      from: `"TaskBoard" <${process.env.EMAIL_USER}>`,
+      from: `"TaskBoard" <a46940001@smtp-brevo.com>`,
       to: email,
       subject: `✅ New Task Created: ${task.title}`,
       html: `
@@ -76,7 +76,7 @@ export const sendTaskCompletedEmail = async (name, email, task) => {
   try {
     const transporter = createTransporter();
     await transporter.sendMail({
-      from: `"TaskBoard" <${process.env.EMAIL_USER}>`,
+      from: `"TaskBoard" <a46940001@smtp-brevo.com>`,
       to: email,
       subject: `🎉 Task Completed: ${task.title}`,
       html: `
