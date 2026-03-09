@@ -9,10 +9,8 @@ const Login = () => {
   const dispatch  = useDispatch();
   const navigate  = useNavigate();
   const { user, loading, error } = useAuth();
-
   const [form, setForm] = useState({ email: '', password: '' });
 
-  // Redirect if already logged in
   useEffect(() => {
     if (user) navigate('/dashboard');
     return () => dispatch(clearError());
@@ -26,7 +24,6 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 page-enter">
       <div className="w-full max-w-sm">
-
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-12 h-12 bg-amber-500/10
@@ -45,7 +42,6 @@ const Login = () => {
               {error}
             </div>
           )}
-
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-xs text-[#6b7280] mb-1.5 uppercase tracking-wider">Email</label>
@@ -69,6 +65,14 @@ const Login = () => {
                 required
               />
             </div>
+
+            {/* Forgot Password Link */}
+            <div className="text-right">
+              <Link to="/forgot-password" className="text-amber-400 text-xs hover:text-amber-300 transition-colors font-mono">
+                Forgot Password?
+              </Link>
+            </div>
+
             <button type="submit" disabled={loading} className="btn-primary w-full mt-2 flex items-center justify-center gap-2">
               {loading ? <><Spinner size="sm" /> Signing in...</> : 'Sign In →'}
             </button>

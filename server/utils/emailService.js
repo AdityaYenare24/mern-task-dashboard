@@ -63,3 +63,19 @@ export const sendTaskCompletedEmail = async (name, email, task) => {
     console.error('❌ Task completed email error:', error.message);
   }
 };
+
+export const sendPasswordResetEmail = async (name, email, resetURL) => {
+  try {
+    await sendEmail(email, '🔐 Reset Your Password', `
+      <div style="font-family:monospace;background:#0d0f14;color:#e8eaf0;padding:32px;border-radius:12px;max-width:480px;">
+        <h1 style="color:#f59e0b;">Reset Password</h1>
+        <p style="color:#9ca3af;">Hi ${name}, click below to reset your password.</p>
+        <p style="color:#9ca3af;">This link expires in <strong style="color:#fff;">1 hour</strong>.</p>
+        <a href="${resetURL}" style="display:inline-block;background:#f59e0b;color:#000;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:16px;">Reset Password →</a>
+        <p style="color:#6b7280;font-size:12px;margin-top:16px;">If you didn't request this, ignore this email.</p>
+      </div>`);
+    console.log('✅ Password reset email sent to:', email);
+  } catch (error) {
+    console.error('❌ Password reset email error:', error.message);
+  }
+};

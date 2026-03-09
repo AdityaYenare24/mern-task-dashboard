@@ -5,6 +5,8 @@ import PrivateRoute from './utils/PrivateRoute';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 const App = () => (
   <Provider store={store}>
@@ -21,6 +23,9 @@ const App = () => (
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/login" replace />} />
+        
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   </Provider>
