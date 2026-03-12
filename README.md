@@ -276,20 +276,32 @@ EMAIL_PASS=abcdefghijklmnop
 
 ## 🌐 Deployment
 
-### Backend — Railway
+### Backend — Render
 
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
+1. Push your code to GitHub
+2. Go to [https://render.com](https://render.com) and create a new account or log in
+3. Click **New → Web Service**
+4. Connect your GitHub repository and select the repo
+5. Configure the service:
+   - **Name:** `mern-task-dashboard-api` (or any name)
+   - **Root Directory:** `server`
+   - **Environment:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `node server.js`
+6. Click **Create Web Service**
 
-# Login and deploy
-railway login
-cd server
-railway init
-railway up
+Set environment variables in the Render dashboard under **Environment**:
+
+```env
+NODE_ENV=production
+MONGO_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_super_secret_jwt_key
+JWT_EXPIRES_IN=7d
+EMAIL_USER=your_gmail@gmail.com
+EMAIL_PASS=your_16_char_app_password
 ```
 
-Set environment variables in Railway dashboard.
+Your backend will be live at: `https://your-app-name.onrender.com`
 
 ### Frontend — Vercel
 
